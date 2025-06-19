@@ -3,16 +3,12 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 
 <figure style="text-align: center;">
   <img src="imgs/sip-dataset.png" alt="SIP dataset overview" width="100%">
+  <img src="imgs/characteristics.png" alt="Dataset characteristics" width="90%">
 </figure>
 
 - A unit of individual scans
 - Scenes captured during construction through FARO lidar, including structure components and temporary construction objects
 
-
-<figure style="text-align: center;">
-  <img src="imgs/characteristics.png" alt="Dataset characteristics" width="100%">
-  <figcaption><em>Key characteristics of the SIP dataset</em></figcaption>
-</figure>
 
 ## Instructions
 
@@ -59,10 +55,10 @@ SIP-Indoor/
 
 
 ## Class List
-**Indexed Classes** (used for SIP-indoor evaluation):  
+### **Indexed Classes** (used for SIP-indoor evaluation):  
 **0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair** 
 
-**Non-Indexed** (auxiliary / context only):  
+### **Non-Indexed** (auxiliary / context only):  
 **7: frame, 8: lift, 9: mtrl**, 10: guardrails, 11: door, 12: ground, 13: vehicle, 14: tree, 15: fence, 16: scaffolding, 17: portajohn, 18: container, 19: monument, 20: girder, 21: awning, 22: clutter
 
 
