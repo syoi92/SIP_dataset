@@ -1,13 +1,18 @@
 # SIP_dataset
 Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase segmentation.
 
-<p align="center">
-<img src="imgs/sip-dataset.png" alt="" width="100%">
-<img src="imgs/characteristics.png" alt="" width="100%">
-</p>
+<figure style="text-align: center;">
+  <img src="imgs/sip-dataset.png" alt="SIP dataset overview" width="100%">
+</figure>
 
 - A unit of individual scans
 - Scenes captured during construction through FARO lidar, including structure components and temporary construction objects
+
+
+<figure style="text-align: center;">
+  <img src="imgs/characteristics.png" alt="Dataset characteristics" width="100%">
+  <figcaption><em>Key characteristics of the SIP dataset</em></figcaption>
+</figure>
 
 ## Instructions
 
