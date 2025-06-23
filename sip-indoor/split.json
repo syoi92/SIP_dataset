@@ -1,0 +1,162 @@
+{
+    "234c63d2-b58e-4d9c-9c8e-20b742df1afe": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "d7ea59a4-f6d0-4a55-ab89-df09a0a4204b": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "7bd5d1a9-8f95-46f6-84ab-5e010da7d818": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "c5fff06d-1bd2-44b1-b785-bf7b655274d3": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "6918afde-9d73-494b-a3f0-53a8979f00b0": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "1b207136-699a-4079-a43b-2801fa7b6fd9": {
+      "set": "test",
+      "type": "indoor"
+    },
+    "dc3eff31-da9d-4dc7-aeee-1ec3969dbc4a": {
+      "set": "test",
+      "type": "indoor"
+    },
+    "58ce141c-448b-4192-822f-5ae9c2c4df24": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "3db60790-22f6-4f9e-be53-88cdc08474e5": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "0a92e569-daf9-4d7a-8505-8fd0e6302379": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "da6c725d-dfb1-4f10-b851-bc6e67af92d1": {
+      "set": "test",
+      "type": "indoor"
+    },
+    "61842097-4513-4a5b-8752-7fec2a56908c": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "e3a0d527-8265-4ab1-bf8a-49315d3d3a09": {
+      "set": "test",
+      "type": "indoor"
+    },
+    "83967d29-a919-4280-989c-a72e2aa11495": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "e66d583e-0ecc-41d7-823a-f12f57bcc58e": {
+      "set": "test",
+      "type": "indoor"
+    },
+    "1586c2f3-408c-4040-9a78-ff7f1efea80c": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "325adb84-7109-407e-b974-9bb413f04e58": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "8ee97e84-33c6-49cd-8bd7-1ee690dc0f61": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "56968a25-d43b-4434-9533-51282a09f1d1": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "687be56f-1114-46b2-b81f-665bdec55024": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "4fd0d607-515b-433a-a132-d8c7111eda70": {
+      "set": "test",
+      "type": "indoor"
+    },
+    "a8b9cb3e-e61a-4b26-b2a3-ac17705f1184": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "843773ed-0216-42ee-92b0-a935031e30e2": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "9df63561-b712-4ade-a9ce-88c6c1f65625": {
+      "set": "None",
+      "type": "indoor"
+    },
+    "3c92b9f0-591b-4ad1-86b5-dae1ea99907a": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "b5a85b0a-4ade-4e39-bc0a-09af8560f0f3": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "c617bfaa-b82e-42de-9821-37cf0f12a4aa": {
+      "set": "train",
+      "type": "indoor"
+    },
+    "a41bb231-a643-4799-a5ae-314dc9984ef3": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "2a89698f-7b45-468a-8289-65f92676c5ee": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "4a0fa8a1-b3ad-40d3-814a-24a92a8a823b": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "f87b965b-238d-4dc1-af2a-fa37c4957ff4": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "b3b10d1e-7e33-4b08-baeb-883c59f5fba7": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "c169901c-ef11-4695-b818-b1cb81bbccf1": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "606a10f7-7350-4339-b314-b6f964750267": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "49a43e45-f902-4a4f-945f-f8ddade4ae15": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "59066fea-ed8b-411e-8850-fdfcba66ef82": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "6f094d0a-722b-4122-bdeb-0fe1bd7477b4": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "d95973c8-0ea6-407d-8afd-c7d8d84760e3": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "ab4dd406-3591-4e4f-93ae-fde1b65d8824": {
+      "set": "",
+      "type": "outdoor"
+    },
+    "9bf316ec-cda0-4c78-8575-f384d38cfcb3": {
+      "set": "",
+      "type": "outdoor"
+    }
+  }

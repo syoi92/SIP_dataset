@@ -10,32 +10,44 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 - Scenes captured during construction through FARO lidar, including structure components and temporary construction objects
 
 
+
+## Class List
+### **Indexed Classes** (used for SIP-indoor evaluation):  
+**0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair** 
+
+### **Non-Indexed** (auxiliary / context only):  
+**7: frame, 8: lift, 9: mtrl**, 10: guardrails, 11: door, 12: ground, 13: vehicle, 14: tree, 15: fence, 16: scaffolding, 17: portajohn, 18: container, 19: monument, 20: girder, 21: awning, 22: clutter
+
+
+> *Only the bolded classes appear in SIP-Indoor scenes.*
+
+
 ## Instructions
 
 ### Download: SIP-Indoor 
 
-```
+```bash
 wget [URLURLURL] -O sip-indoor.zip
 unzip sip-indoor.zip && rm sip-indoor.zip
 cd sip-indoor
 ```
 Or using `curl`:
-```
+```bash
 curl -L "[URLURLURL]" -o sip-indoor.zip
 unzip sip-indoor.zip && rm sip-indoor.zip
 ```
 
 ### Download: SIP-Outdoor (extension) 
-```
+```bash
 wget [URLURLURL] -O sip-outdoor.zip
 ```
 
 ### Directory Structure
 ```
-SIP-Indoor/
-  │ class_info.json
+sip-indoor/
+  │ class_config.json
   │ splits.json
-  └─Scans/
+  └─scans/
     │ scan.txt [xyzrgbI] - original scan (pre-annotation)
     └─Annotation/
         │ class1.txt [xyzrgbI]
@@ -49,28 +61,27 @@ SIP-Indoor/
 - **splits.json** — Maps each scan to a dataset split (train or test), following the convention used.
 
 
+## Visulization
+
+To visualize annotations, use the `view_anno.py` script. It reads a scan and its class-wise annotations, applies color mappings from `class_config.json`, and generates a merged colorized `.txt` file.
 
 
 
+```bash
+python view_anno.py sip-indoor/scans/[scan_id] [output_folder]
+```
+- [scan_id]: folder containing scan.txt and its Annotation/ directory
+- [output_folder]: destination for the merged, colorized .txt file  
 
+*Replace items in [brackets] with your own values.*
 
-## Class List
-### **Indexed Classes** (used for SIP-indoor evaluation):  
-**0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair** 
-
-### **Non-Indexed** (auxiliary / context only):  
-**7: frame, 8: lift, 9: mtrl**, 10: guardrails, 11: door, 12: ground, 13: vehicle, 14: tree, 15: fence, 16: scaffolding, 17: portajohn, 18: container, 19: monument, 20: girder, 21: awning, 22: clutter
-
-
-> *Only the bolded classes appear in SIP-Indoor scenes.*
+### Viewing with CloudCompare
+The `.txt` files can be directly loaded into [CloudCompare](https://www.danielgm.net/cc/). If needed, you can convert `.txt` to `.ply` using the provided `utils.py` script.
 
 
 
 ## 📄 License
 
-This repository contains two types of content with separate licenses:
+- **Dataset**: Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/); **Code**: Licensed under the [MIT License](./LICENSE.md).  
 
-- 📦 **Dataset**: Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).  
-  You are free to share and adapt the dataset for non-commercial purposes with proper attribution.
-
-- 🧑‍💻 **Code**: Licensed under the [MIT License](./LICENSE.md).
+*You are free to share and adapt the dataset for non-commercial purposes with proper attribution.*
