@@ -11,7 +11,7 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 
 
 
-## Class List
+## 🏷️ Class List
 ### **Indexed Classes** (used for SIP-indoor evaluation):  
 **0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair** 
 
@@ -22,7 +22,7 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 > *Only the bolded classes appear in SIP-Indoor scenes.*
 
 
-## Instructions
+## 📦 Instructions
 
 ### Download: SIP-Indoor 
 
@@ -61,7 +61,7 @@ sip-indoor/
 - **splits.json** — Maps each scan to a dataset split (train or test), following the convention used.
 
 
-## Visulization
+## 🖼️ Visulization
 
 To visualize annotations, use the `view_anno.py` script. It reads a scan and its class-wise annotations, applies color mappings from `class_config.json`, and generates a merged colorized `.txt` file.
 
@@ -80,7 +80,7 @@ The `.txt` files can be directly loaded into [CloudCompare](https://www.danielgm
 
 
 
-## License
+## 📄 License
 
 - **Dataset**: Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/); **Code**: Licensed under the [MIT License](./LICENSE.md).  
 
