@@ -16,7 +16,7 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 **0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair** 
 
 ### **Non-Indexed** (auxiliary / context only):  
-**7: frame, 8: lift, 9: mtrl**, 10: guardrails, 11: door, 12: ground, 13: vehicle, 14: tree, 15: fence, 16: scaffolding, 17: portajohn, 18: container, 19: monument, 20: girder, 21: awning, 22: clutter
+**7: frame, 8: lift, 9: mtrl, 10:window**, 11: guardrails, 12: door, 13: ground, 14: vehicle, 15: tree, 16: fence, 17: scaffolding, 18: portajohn, 19: container, 20: monument, 21: girder, 22: awning
 
 
 > *Only the bolded classes appear in SIP-Indoor scenes.*
@@ -27,19 +27,19 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 ### Download: SIP-Indoor 
 
 ```bash
-wget [URLURLURL] -O sip-indoor.zip
+wget https://dl.dropboxusercontent.com/scl/fi/1uoutwbyunjbsmygn8itt/sip-indoor.zip?rlkey=hwh5iut9ttmtze2p7zpfsluyz&st=t6w2ahxd -O sip-indoor.zip
 unzip sip-indoor.zip && rm sip-indoor.zip
 cd sip-indoor
 ```
 Or using `curl`:
 ```bash
-curl -L "[URLURLURL]" -o sip-indoor.zip
+curl -L "https://dl.dropboxusercontent.com/scl/fi/1uoutwbyunjbsmygn8itt/sip-indoor.zip?rlkey=hwh5iut9ttmtze2p7zpfsluyz&st=t6w2ahxd" -o sip-indoor.zip
 unzip sip-indoor.zip && rm sip-indoor.zip
 ```
 
 ### Download: SIP-Outdoor (extension) 
 ```bash
-wget [URLURLURL] -O sip-outdoor.zip
+wget https://dl.dropboxusercontent.com/scl/fi/5r8qlinial49ju4awww24/sip-outdoor.zip?rlkey=t500xqn9ao19vs9cdrg1q761g&st=aqwg372o -O sip-outdoor.zip
 ```
 
 ### Directory Structure
@@ -80,7 +80,7 @@ The `.txt` files can be directly loaded into [CloudCompare](https://www.danielgm
 
 
 
-## 📄 License
+## License
 
 - **Dataset**: Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/); **Code**: Licensed under the [MIT License](./LICENSE.md).  
 

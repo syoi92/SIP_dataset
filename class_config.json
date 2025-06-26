@@ -90,7 +90,7 @@
         "indexed": false
     },
     "10": {
-        "name": "guardrails",
+        "name": "window",
         "color": [
             0.5490196078431373,
             0.33725490196078434,
@@ -99,7 +99,7 @@
         "indexed": false
     },
     "11": {
-        "name": "door",
+        "name": "guardrails",
         "color": [
             0.7686274509803922,
             0.611764705882353,
@@ -108,7 +108,7 @@
         "indexed": false
     },
     "12": {
-        "name": "ground",
+        "name": "door",
         "color": [
             0.8901960784313725,
             0.4666666666666667,
@@ -117,7 +117,7 @@
         "indexed": false
     },
     "13": {
-        "name": "vehicle",
+        "name": "ground",
         "color": [
             0.9686274509803922,
             0.7137254901960784,
@@ -126,7 +126,7 @@
         "indexed": false
     },
     "14": {
-        "name": "tree",
+        "name": "vehicle",
         "color": [
             0.4980392156862745,
             0.4980392156862745,
@@ -135,7 +135,7 @@
         "indexed": false
     },
     "15": {
-        "name": "fence",
+        "name": "tree",
         "color": [
             0.7803921568627451,
             0.7803921568627451,
@@ -144,7 +144,7 @@
         "indexed": false
     },
     "16": {
-        "name": "scaffolding",
+        "name": "fence",
         "color": [
             0.7372549019607844,
             0.7411764705882353,
@@ -153,7 +153,7 @@
         "indexed": false
     },
     "17": {
-        "name": "portajohn",
+        "name": "scaffolding",
         "color": [
             0.8588235294117647,
             0.8588235294117647,
@@ -162,7 +162,7 @@
         "indexed": false
     },
     "18": {
-        "name": "container",
+        "name": "portajohn",
         "color": [
             0.09019607843137255,
             0.7450980392156863,
@@ -171,7 +171,7 @@
         "indexed": false
     },
     "19": {
-        "name": "monument",
+        "name": "container",
         "color": [
             0.6196078431372549,
             0.8549019607843137,
@@ -180,7 +180,7 @@
         "indexed": false
     },
     "20": {
-        "name": "girder",
+        "name": "monument",
         "color": [
             0.984313725490196,
             0.7058823529411765,
@@ -189,7 +189,7 @@
         "indexed": false
     },
     "21": {
-        "name": "awning",
+        "name": "girder",
         "color": [
             0.7019607843137254,
             0.803921568627451,
@@ -198,7 +198,7 @@
         "indexed": false
     },
     "22": {
-        "name": "clutter",
+        "name": "awning",
         "color": [
             0.8,
             0.9215686274509803,
