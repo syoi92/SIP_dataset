@@ -27,7 +27,7 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 ### Download: SIP-Indoor 
 
 ```bash
-wget https://dl.dropboxusercontent.com/scl/fi/1uoutwbyunjbsmygn8itt/sip-indoor.zip?rlkey=hwh5iut9ttmtze2p7zpfsluyz&st=t6w2ahxd -O sip-indoor.zip
+wget "https://dl.dropboxusercontent.com/scl/fi/1uoutwbyunjbsmygn8itt/sip-indoor.zip?rlkey=hwh5iut9ttmtze2p7zpfsluyz&st=t6w2ahxd" -O sip-indoor.zip
 unzip sip-indoor.zip && rm sip-indoor.zip
 cd sip-indoor
 ```
@@ -39,7 +39,7 @@ unzip sip-indoor.zip && rm sip-indoor.zip
 
 ### Download: SIP-Outdoor (extension) 
 ```bash
-wget https://dl.dropboxusercontent.com/scl/fi/5r8qlinial49ju4awww24/sip-outdoor.zip?rlkey=t500xqn9ao19vs9cdrg1q761g&st=aqwg372o -O sip-outdoor.zip
+wget "https://dl.dropboxusercontent.com/scl/fi/5r8qlinial49ju4awww24/sip-outdoor.zip?rlkey=t500xqn9ao19vs9cdrg1q761g&st=aqwg372o" -O sip-outdoor.zip
 ```
 
 ### Directory Structure
