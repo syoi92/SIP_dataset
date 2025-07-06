@@ -9,18 +9,12 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 - A unit of individual scans
 - Scenes captured during construction through FARO lidar, including structure components and temporary construction objects
 
+## Overview
 
-
-## 🏷️ Class List
-### **Indexed Classes** (used for SIP-indoor evaluation):  
-**0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair** 
-
-### **Non-Indexed** (auxiliary / context only):  
-**7: frame, 8: lift, 9: mtrl, 10:window**, 11: guardrails, 12: door, 13: ground, 14: vehicle, 15: tree, 16: fence, 17: scaffolding, 18: portajohn, 19: container, 20: monument, 21: girder, 22: awning
-
-
-> *Only the bolded classes appear in SIP-Indoor scenes.*
-
+- [Instuctions](#📦-instructions)
+- [Class List](#🏷️-class-list)
+- [Visalization](#🖼️-visulization)
+- [License](#📄-license)
 
 ## 📦 Instructions
 
@@ -59,6 +53,17 @@ sip-indoor/
 - **class_info.json** — Defines class labels and RGB colors for visualization. The `indexed` flag indicates classes intended for training and evaluation, which can be adjusted as needed.
 
 - **splits.json** — Maps each scan to a dataset split (train or test), following the convention used.
+
+
+## 🏷️ Class List
+### **Indexed Classes** (used for SIP-indoor evaluation):  
+**0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair** 
+
+### **Non-Indexed** (auxiliary / context only):  
+**7: frame, 8: lift, 9: mtrl, 10:window**, 11: guardrails, 12: door, 13: ground, 14: vehicle, 15: tree, 16: fence, 17: scaffolding, 18: portajohn, 19: container, 20: monument, 21: girder, 22: awning
+
+
+> *Only the bolded classes appear in SIP-Indoor scenes.*
 
 
 ## 🖼️ Visulization
