@@ -11,16 +11,15 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 
 ## Overview
 
-- [Instuctions](#📦-instructions)
-- [Class List](#🏷️-class-list)
-- [Visalization](#🖼️-visulization)
-- [License](#📄-license)
+- [Instructions](#-instructions)
+- [Class List](#-class-list)
+- [Visualization](#-visualization)
+- [License](#-license)
 
 ## 📦 Instructions
 
 ### Download: SIP-Indoor 
 
-https://www.dropbox.com/scl/fi/8kgdy1wiz6g1qj7oe79uh/SIP-indoor.zip?rlkey=oue0m4sruc0bkx2p2784tnbu7&st=9raoybxc&dl=0
 ```bash
 wget "https://dl.dropboxusercontent.com/scl/fi/8kgdy1wiz6g1qj7oe79uh/SIP-indoor.zip?rlkey=oue0m4sruc0bkx2p2784tnbu7&st=9raoybx" -O sip-indoor.zip
 unzip sip-indoor.zip && rm sip-indoor.zip
@@ -67,7 +66,7 @@ sip-indoor/
 > *Only the bolded classes appear in SIP-Indoor scenes.*
 
 
-## 🖼️ Visulization
+## 🖼️ Visualization
 
 To visualize annotations, use the `view_anno.py` script. It reads a scan and its class-wise annotations, applies color mappings from `class_config.json`, and generates a merged colorized `.txt` file.
 
