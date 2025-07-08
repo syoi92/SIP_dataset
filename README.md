@@ -20,20 +20,21 @@ Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase 
 
 ### Download: SIP-Indoor 
 
+https://www.dropbox.com/scl/fi/8kgdy1wiz6g1qj7oe79uh/SIP-indoor.zip?rlkey=oue0m4sruc0bkx2p2784tnbu7&st=9raoybxc&dl=0
 ```bash
-wget "https://dl.dropboxusercontent.com/scl/fi/1uoutwbyunjbsmygn8itt/sip-indoor.zip?rlkey=hwh5iut9ttmtze2p7zpfsluyz&st=t6w2ahxd" -O sip-indoor.zip
+wget "https://dl.dropboxusercontent.com/scl/fi/8kgdy1wiz6g1qj7oe79uh/SIP-indoor.zip?rlkey=oue0m4sruc0bkx2p2784tnbu7&st=9raoybx" -O sip-indoor.zip
 unzip sip-indoor.zip && rm sip-indoor.zip
 cd sip-indoor
 ```
 Or using `curl`:
 ```bash
-curl -L "https://dl.dropboxusercontent.com/scl/fi/1uoutwbyunjbsmygn8itt/sip-indoor.zip?rlkey=hwh5iut9ttmtze2p7zpfsluyz&st=t6w2ahxd" -o sip-indoor.zip
+curl -L "https://dl.dropboxusercontent.com/scl/fi/8kgdy1wiz6g1qj7oe79uh/SIP-indoor.zip?rlkey=oue0m4sruc0bkx2p2784tnbu7&st=9raoybx" -o sip-indoor.zip
 unzip sip-indoor.zip && rm sip-indoor.zip
 ```
 
 ### Download: SIP-Outdoor (extension) 
 ```bash
-wget "https://dl.dropboxusercontent.com/scl/fi/5r8qlinial49ju4awww24/sip-outdoor.zip?rlkey=t500xqn9ao19vs9cdrg1q761g&st=aqwg372o" -O sip-outdoor.zip
+wget "https://dl.dropboxusercontent.com/scl/fi/pee418sp18krug56nkc7z/SIP-outdoor.zip?rlkey=ivrd2cwc5ps8z8tpi5mo4pq87&st=jxm0l0wl" -O sip-outdoor.zip
 ```
 
 ### Directory Structure
@@ -42,9 +43,9 @@ sip-indoor/
   │ class_config.json
   │ splits.json
   └─scans/
-    │ scan.txt [xyzrgbI] - original scan (pre-annotation)
+    │ scan.txt [xyzrgbINor] - original scan (pre-annotation)
     └─Annotation/
-        │ class1.txt [xyzrgbI]
+        │ class1.txt [xyzrgbINor]
         │ class2.txt
         │ ⋮ 
         └─classN.txt
