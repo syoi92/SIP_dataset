@@ -2,29 +2,39 @@
 Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase segmentation (formerly CnstPCIM dataset)
 
 <figure style="text-align: center;">
-  <img src="imgs/sip-dataset.png" alt="SIP dataset overview" width="100%">
-  <table>
-    <tr>
-      <td><img src="imgs/e1-a.png" alt="RGB"></td>
-      <td><img src="imgs/e1-b.png" alt="Intensity"></td>
-      <td><img src="imgs/e1-c.png" alt="Normal"></td>
-      <td><img src="imgs/e1-d.png" alt="Annotation"></td>
-    </tr>
+  <img src="imgs/sip-dataset.png" alt="SIP dataset overview" width="90%">
+  <table align="center" style="font-size:13px;">
     <tr>
       <td align="center">RGB</td>
       <td align="center">Lidar Intensity</td>
       <td align="center">Surface Normal</td>
       <td align="center">Annotation</td>
     </tr>
+    <tr>
+      <td><img src="imgs/e1-a.png" alt="RGB" height="140"></td>
+      <td><img src="imgs/e1-b.png" alt="Intensity" height="140"></td>
+      <td><img src="imgs/e1-c.png" alt="Normal" height="140"></td>
+      <td><img src="imgs/e1-d.png" alt="Annotation" height="140"></td>
+    </tr>
+    <tr>
+      <td><img src="imgs/e2-a.png" alt="RGB" height="140"></td>
+      <td><img src="imgs/e2-b.png" alt="Intensity" height="140"></td>
+      <td><img src="imgs/e2-c.png" alt="Normal" height="140"></td>
+      <td><img src="imgs/e2-d.png" alt="Annotation" height="140"></td>
+    </tr>
   </table>
+  <p align="center"><em style="font-size:14px;">Sample Visualization</em></p>
+
+
 </figure>
 
 - **Single-scan FARO LiDAR scenes** that retain real-world occlusion, density imbalance, and restricted visibility—conditions that multi-scan registration often removes. **Uniform-ratio sampled** to match a 0.03 m voxel-equivalent density while preserving the essential geometric characteristics of the original single scans.
 
 - **Collected throughout construction phases**, capturing both permanent structural components and temporary construction objects integral to on-site operations.
-<figure style="text-align: center;">
+
+<p align="center">
   <img src="imgs/characteristics.png" alt="Dataset characteristics" width="70%">
-</figure>
+</p>
 
 <!-- ## Overview
 
