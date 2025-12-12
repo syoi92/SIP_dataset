@@ -2,60 +2,51 @@ import os
 import sys
 import json
 import numpy as np
-from utils import load_txt, save_txt
+import argparse
+
+from utils import load_txt, save_txt, load_class_config
 
 
-def main(scan_dir, output_dir):
-    ## sample
-    # scan_dir = "./sip-indoor/0a92e569-daf9-4d7a-8505-8fd0e6302379"
-    # output_dir = "./"
-    
-    # Load class config json
-    try:
-        class_config_path = os.path.join(os.path.dirname(scan_dir), 'class_config.json')
-        with open(class_config_path, 'r') as f:
-            class_config = json.load(f)
-    except FileNotFoundError:
-        # Try fallback path: current working directory
-        try:
-            class_config_path = './class_config.json'
-            with open(class_config_path, 'r') as f:
-                class_config = json.load(f)
-        except FileNotFoundError:
-            raise FileNotFoundError("class_config.json not found in either parent of scan_dir or current directory.")
-
-    view_anno(scan_dir, output_dir, class_config)
-    
-
-def view_anno(scan_dir, output_dir, class_config):
+def view_anno(scan_dir, output_dir, class_colormap):
     scan_id = os.path.basename(scan_dir.strip("/"))
     anno_dir = os.path.join(scan_dir, 'Annotation')
+
+    if not os.path.isdir(anno_dir):
+        raise FileNotFoundError(f"Annotation directory not found: {anno_dir}")
+
     print(f"Color coding for {scan_id}")
 
     colored_points = []
     for filename in os.listdir(anno_dir):
-        if filename.endswith('.txt'):
-            itr_class = os.path.splitext(filename)[0].lower()
-            itr_color = None
+        if not filename.endswith(".txt"):
+            continue
+ 
+        cls_stem = os.path.splitext(filename)[0].lower()
+        color = None
 
-            for _, class_info in class_config.items():
-                class_name = class_info["name"].lower()
-                if itr_class.startswith(class_name) or class_name in itr_class:
-                    itr_color = class_info["color"]  
-                    break
-            
-            if itr_color is None:
-                print(f"Warning: Could not resolve class for {filename}")
-                continue
+        for class_name, class_color in class_colormap.items():
+            if cls_stem.startswith(class_name) or class_name in cls_stem:
+                color = class_color
+                break
 
-            points = load_txt(os.path.join(anno_dir, filename))  # xyzrgbI
-            rgb = np.tile(np.array(itr_color), (points.shape[0], 1))  # assign class color
-            merged = np.concatenate([points[:, :3], rgb, points[:, 6:7]], axis=1)  # xyz + class color + I
-            colored_points.append(merged)
+        if color is None:
+            print(f"Warning: Could not resolve class for {filename}")
+            continue
+
+
+        points = load_txt(os.path.join(anno_dir, filename))  # xyzrgbI
+        if points.shape[1] < 7:
+            raise ValueError(f"{filename} has {points.shape[1]} columns, expected ≥ 7.")
+
+        rgb = np.tile(color, (points.shape[0], 1))
+        merged = np.concatenate([points[:, :3], rgb, points[:, 6:7]], axis=1)
+        colored_points.append(merged)
+
+    if not colored_points:
+        raise RuntimeError(f"No valid annotated points found in {anno_dir}.")
 
     # Merge and save
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    os.makedirs(output_dir, exist_ok=True)
 
     merged_points = np.vstack(colored_points)
     output_path = os.path.join(output_dir, scan_id + '_annotated.txt')
@@ -64,12 +55,34 @@ def view_anno(scan_dir, output_dir, class_config):
     print(f"Saved colorized annotation to {output_path}")
 
 
-if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        print("Usage: python view_anno.py [scan_folder] [output_folder]")
-        sys.exit(1)
 
-    scan_folder = sys.argv[1]
-    output_folder = sys.argv[2]
-    print(f"Scan_dir: {scan_folder} && output_dir: {output_folder}")
+def main(scan_dir, output_dir):
+
+    class_config, cfg_path = load_class_config(scan_dir)
+    print(f"Loaded class_config from: {cfg_path}")
+
+    class_colormap = {
+        v["name"].lower(): np.array(v["color"], dtype=np.float32)
+        for v in class_config.values()
+    }
+
+    view_anno(scan_dir, output_dir, class_colormap)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--scan-dir", type=str, required=True,
+                        help="Path to a single scan folder (e.g., SIP-v1.0_Indoor/0a92e569-...).",)
+    parser.add_argument("--output", type=str, required=True,
+                        help="Output folder to save the merged colorized txt.",)
+    args = parser.parse_args()
+
+    scan_folder = args.scan_dir
+    output_folder = args.output
+
+    print("========== Annotation Visualization ==========")
+    print(f"Scan dir   : {scan_folder}")
+    print(f"Output dir : {output_folder}")
+    print("=============================================\n")
+
     main(scan_folder, output_folder)

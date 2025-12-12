@@ -1,5 +1,8 @@
 # data link
-sip-indoor
+SIP*/
+sip*/
+SIP*.zip
+sip*.zip
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

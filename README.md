@@ -1,5 +1,7 @@
-# SIP_dataset
-Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase segmentation (formerly CnstPCIM dataset)
+# SIP_dataset 
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.17667736.svg)](https://doi.org/10.5281/zenodo.17667736)  [![arXiv](https://img.shields.io/badge/arXiv-2512.09062-b31b1b.svg)](https://arxiv.org/abs/2512.09062)
+
+Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase segmentation (formerly CnstPCIM dataset) 
 
 <p align="center">
   <img src="imgs/sip-dataset.png" alt="SIP dataset overview" width="90%">
@@ -102,15 +104,34 @@ Indexed (recommended for SIP-Indoor benchmarking):
 
 ### Download
 
-The full SIP dataset, including both *SIP-Indoor* and the *SIP-Outdoor* (extension/ auxiliary), is available on **Zenodo DOI**: https://doi.org/10.5281/zenodo.17667736
+The full SIP dataset, including both *SIP-Indoor* and the *SIP-Outdoor* (extension/ auxiliary), is available at: https://doi.org/10.5281/zenodo.17667736
 
-<!-- ```bash
-wget "https://dl.dropboxusercontent.com/scl/fi/8kgdy1wiz6g1qj7oe79uh/SIP-indoor.zip?rlkey=oue0m4sruc0bkx2p2784tnbu7&st=9raoybx" -O sip-indoor.zip
-unzip sip-indoor.zip && rm sip-indoor.zip
-cd sip-indoor
-``` -->
+Download via the Zenodo API:
+
+#### Using `wget`
+```bash
+wget "https://zenodo.org/api/records/17667736/files/SIP-v1.0_Indoor.zip/content" -O SIP-v1.0_Indoor.zip
+unzip SIP-v1.0_Indoor.zip && rm SIP-v1.0_Indoor.zip
+cd SIP-v1.0_Indoor
+```
+```bash
+wget "https://zenodo.org/api/records/17667736/files/SIP-v1.0_Outdoor.zip/content" -O SIP-v1.0_Outdoor.zip
+```
 
 
+#### Using `curl`
+```bash
+curl -L "https://zenodo.org/api/records/17667736/files/SIP-v1.0_Indoor.zip/content" -o SIP-v1.0_Indoor.zip && \
+curl -L "https://zenodo.org/api/records/17667736/files/SIP-v1.0_Outdoor.zip/content" -o SIP-v1.0_Outdoor.zip
+```
+
+### Preparing Data for 3D DL Pipelines
+The `preprocessing.py` converts raw per-class annotations into training-ready dictionary (.npz). It merges annotations, filters to indexed classes, and applies optional LiDAR scan ordering and Manhattan alignment.
+
+```bash
+python preprocessing.py --root SIP-v1.0_Indoor --output output_folder [--align-manhattan]
+```
+- align-manhattan: rotate scans to Manhattan axes (optional)
 
 ### Visualization
 
@@ -129,10 +150,12 @@ Please cite our dataset paper:
 @article{kim2025sip,
   title={Site in Pieces (SIP): A Construction-Phase LiDAR Dataset for Single-Scan Segmentation},
   author={Kim, Seongyong and Cho, Yong Kwon},
-  journal={arXiv preprint arXiv:2025.xxxxx},
-  year={2025}
+  journal={arXiv preprint arXiv:2512.09062},
+  year={2025},
 }
 ```
+
+
 
 ## License
 
