@@ -45,14 +45,24 @@ def process_scan(scan_dir, name_to_index, apply_manhattan=False):
     else:
         theta = 0.0
 
-    return {
-        "coord":      allpts[:, 0:3],
-        "rgb":        allpts[:, 3:6],
-        "intensity":  allpts[:, 6:7],
-        "normal":     allpts[:, 7:10],
-        "semantic_gt": allpts[:, 10:11],
+    data = {
+        "coord":      allpts[:, 0:3].astype(np.float64),
+        "rgb":        allpts[:, 3:6].astype(np.float64),
+        "intensity":  allpts[:, 6:7].astype(np.float64),
+        "normal":     allpts[:, 7:10].astype(np.float64),
+        "semantic_gt": allpts[:, 10:11].astype(np.int64),
         "theta": np.array([theta], dtype=np.float32),
     }
+    
+    data["index_valid_keys"] = [
+        "coord",
+        "color",
+        "normal",
+        "intensity",
+        "segment"
+    ]
+
+    return data
 
 def preprocess(root, out_root, apply_manhattan=False):
 
