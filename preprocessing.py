@@ -4,6 +4,7 @@ import numpy as np
 from glob import glob
 from tqdm import tqdm
 import argparse
+import re
 
 from utils import load_txt, load_class_config, restore_lidar_scan_order, align_to_manhattan
 
@@ -20,16 +21,26 @@ def load_splits(split_path):
     return splits
 
 
-def process_scan(scan_dir, name_to_index, apply_manhattan=False):
+def normalize_class_name(raw: str) -> str:
+    s = raw.strip().lower()
+    parts = re.split(r"[-_/()\s]+", s)
+    base = parts[0] if parts and parts[0] else s
+    return base
+
+
+def process_scan(scan_dir, name_to_index, apply_manhattan=False, keep_unknown=False):
     anno_dir = os.path.join(scan_dir, "Annotation")
     pts_list = []
 
     for anno_path in glob(os.path.join(anno_dir, "*.txt")):
-        cls_name = os.path.splitext(os.path.basename(anno_path))[0].lower()
-        if cls_name not in name_to_index:
+        raw_name = os.path.splitext(os.path.basename(anno_path))[0]
+        cls_name = normalize_class_name(raw_name)
+
+        if (not keep_unknown) and (cls_name not in name_to_index):
             continue
         
-        label = name_to_index[cls_name]
+        label = name_to_index[cls_name]        
+        print("name-label:", raw_name, "->", cls_name, label)
         pts = load_txt(anno_path)
         semantic = np.full((pts.shape[0], 1), label, dtype=np.int64)
         pts_list.append(np.hstack([pts, semantic]))
@@ -64,18 +75,22 @@ def process_scan(scan_dir, name_to_index, apply_manhattan=False):
 
     return data
 
-def preprocess(root, out_root, apply_manhattan=False):
+def preprocess(root, out_root, apply_manhattan=False,  keep_unknown=False):
 
     class_config, cfg_path = load_class_config(root)
-    
-    class_label_map = {
-        v["name"].lower(): int(k)
-        for k, v in class_config.items()
-        if v.get("indexed", False)
-    }
 
+    indexed_items = sorted(
+        [(int(k), v["name"].lower()) for k, v in class_config.items() if v.get("indexed", False)],
+        key=lambda x: x[0]
+    )
+    indexed_name_to_newid = {name: new_id for new_id, (_, name) in enumerate(indexed_items)}
+    class_label_map = {
+        v["name"].lower(): (indexed_name_to_newid[v["name"].lower()])
+        for _, v in class_config.items() if v.get("indexed", False)
+    }
+    
     print(f"Loaded class_config from: {cfg_path}")
-    print(f"Indexed classes: {list(class_label_map.keys())}")   # Only indexed classes
+    print(f"class_label_map: {class_label_map}")   # Only indexed classes
 
     splits = load_splits(os.path.join(root, "split.json"))
 
@@ -90,7 +105,7 @@ def preprocess(root, out_root, apply_manhattan=False):
         if scan_id not in splits:
             continue
         
-        data = process_scan(os.path.join(root, scan_id), class_label_map, apply_manhattan=apply_manhattan)
+        data = process_scan(os.path.join(root, scan_id), class_label_map, apply_manhattan, keep_unknown)
         if data is None:
             continue
 
@@ -113,9 +128,11 @@ if __name__ == "__main__":
                         help="Output folder (default: <root>_processed)")
     parser.add_argument("--align-manhattan", action="store_true",
                         help="Align point clouds to Manhattan World (principal axis).")
+    parser.add_argument("--keep-unknown", action="store_true", 
+                        help="Keep unknown/unmapped annotation classes as label -1 (default: drop them).")
     args = parser.parse_args()
 
-    root = os.path.abspath(args.root)
+    root = os.path.abspath(os.path.expanduser(args.root))
     out_root = args.output or (root + "_processed")
 
     print("========== Preprocessing ====================")
@@ -125,4 +142,4 @@ if __name__ == "__main__":
     print("=============================================\n")
 
 
-    preprocess(root, out_root, args.align_manhattan)
+    preprocess(root, out_root,  apply_manhattan=args.align, keep_unknown=args.keep_unknown)
