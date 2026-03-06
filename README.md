@@ -89,7 +89,7 @@ We provide a recommended subset of indexed classes—those most consistently rep
 
 ```
 Indexed (recommended for SIP-Indoor benchmarking):
-0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair 
+0: wall, 1: ceiling, 2: floor, 3: pipes, 4: ladder, 5: stair 
 ```
 
 <!-- #### **Non-Indexed** (auxiliary / context only):  

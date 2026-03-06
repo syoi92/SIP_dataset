@@ -42,7 +42,7 @@
             0.6274509803921569,
             0.17254901960784313
         ],
-        "indexed": true
+        "indexed": false
     },
     "5": {
         "name": "ladder",
