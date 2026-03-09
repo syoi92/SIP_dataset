@@ -1,5 +1,5 @@
 # SIP_dataset 
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.17667736.svg)](https://doi.org/10.5281/zenodo.17667736)  [![arXiv](https://img.shields.io/badge/arXiv-2512.09062-b31b1b.svg)](https://arxiv.org/abs/2512.09062)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.17667735.svg)](https://doi.org/10.5281/zenodo.17667735)  [![arXiv](https://img.shields.io/badge/arXiv-2512.09062-b31b1b.svg)](https://arxiv.org/abs/2512.09062)
 
 Sites in Pieces: A SIP dataset of disaggregated 3D scans for construction-phase segmentation (formerly CnstPCIM dataset) 
 
@@ -104,34 +104,38 @@ Indexed (recommended for SIP-Indoor benchmarking):
 
 ### Download
 
-The full SIP dataset, including both *SIP-Indoor* and the *SIP-Outdoor* (extension/ auxiliary), is available at: https://doi.org/10.5281/zenodo.17667736
+The full SIP dataset, including both *SIP-Indoor* and the *SIP-Outdoor* (extension/ auxiliary), is available at: https://doi.org/10.5281/zenodo.17667735
 
 Download via the Zenodo API:
 
 #### Using `wget`
 ```bash
-wget "https://zenodo.org/api/records/17667736/files/SIP-v1.0_Indoor.zip/content" -O SIP-v1.0_Indoor.zip
-unzip SIP-v1.0_Indoor.zip && rm SIP-v1.0_Indoor.zip
-cd SIP-v1.0_Indoor
+wget "https://zenodo.org/api/records/17903354/files/SIP-v1.1_Indoor.zip/content" -O SIP-v1.1_Indoor.zip
+unzip SIP-v1.1_Indoor.zip && rm SIP-v1.1_Indoor.zip
+cd SIP-v1.1_Indoor
 ```
 ```bash
-wget "https://zenodo.org/api/records/17667736/files/SIP-v1.0_Outdoor.zip/content" -O SIP-v1.0_Outdoor.zip
+wget "https://zenodo.org/api/records/17903354/files/SIP-v1.1_Outdoor.zip/content" -O SIP-v1.1_Outdoor.zip
 ```
 
 
 #### Using `curl`
 ```bash
-curl -L "https://zenodo.org/api/records/17667736/files/SIP-v1.0_Indoor.zip/content" -o SIP-v1.0_Indoor.zip && \
-curl -L "https://zenodo.org/api/records/17667736/files/SIP-v1.0_Outdoor.zip/content" -o SIP-v1.0_Outdoor.zip
+curl -L "https://zenodo.org/api/records/17903354/files/SIP-v1.1_Indoor.zip/content" -o SIP-v1.1_Indoor.zip && \
+curl -L "https://zenodo.org/api/records/17903354/files/SIP-v1.1_Outdoor.zip/content" -o SIP-v1.1_Outdoor.zip
 ```
 
 ### Preparing Data for 3D DL Pipelines
 The `preprocessing.py` converts raw per-class annotations into training-ready dictionary (.npz). It merges annotations, filters to indexed classes, and applies optional LiDAR scan ordering and Manhattan alignment.
 
 ```bash
-python preprocessing.py --root SIP-v1.0_Indoor --output output_folder [--align-manhattan]
+python preprocessing.py --root SIP-v1.0_Indoor --output output_folder [--align-manhattan] [--keep-unknown]
 ```
 - align-manhattan: rotate scans to Manhattan axes (optional)
+- keep-unknown: keep unknown/unmapped annotation classes as label -1 (default: drop them)
+
+For [Pointcept](https://github.com/Pointcept/Pointcept)-based experiments, see the configuration repository:
+[Pointcept-SIP](https://github.com/syoi92/Pointcept-SIP/)
 
 ### Visualization
 
