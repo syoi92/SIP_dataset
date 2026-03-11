@@ -1,10 +1,10 @@
 import numpy as np
-import open3d as o3d
 import json
 
-
+import re
 import os
 import json
+
 
 def load_class_config(start_path="."):
     """
@@ -122,3 +122,10 @@ def restore_lidar_scan_order(pcd):
 
     # Sort first by elevation, then azimuth (like a vertical spinning LiDAR)
     return pcd[sort_idx]
+
+
+def normalize_class_name(raw: str) -> str:
+    s = raw.strip().lower()
+    parts = re.split(r"[-_/()\s]+", s)
+    base = parts[0] if parts and parts[0] else s
+    return base

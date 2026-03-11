@@ -4,9 +4,8 @@ import numpy as np
 from glob import glob
 from tqdm import tqdm
 import argparse
-import re
 
-from utils import load_txt, load_class_config, restore_lidar_scan_order, align_to_manhattan
+from utils import load_txt, load_class_config, normalize_class_name, restore_lidar_scan_order, align_to_manhattan
 
 
 def load_splits(split_path):
@@ -19,13 +18,6 @@ def load_splits(split_path):
         if split in ["train", "val", "test"]:
             splits[scan_id] = split
     return splits
-
-
-def normalize_class_name(raw: str) -> str:
-    s = raw.strip().lower()
-    parts = re.split(r"[-_/()\s]+", s)
-    base = parts[0] if parts and parts[0] else s
-    return base
 
 
 def process_scan(scan_dir, name_to_index, apply_manhattan=False, keep_unknown=False):
