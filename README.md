@@ -163,4 +163,4 @@ Please cite our dataset paper:
 
 ## License
 
-- The **dataset** is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), and the accompanying **code** is licensed under the [MIT License](./LICENSE.md).  
+- The **dataset** is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), and the accompanying **code** is licensed under the [MIT License](./LICENSE.md).  
