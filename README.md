@@ -89,13 +89,35 @@ We provide a recommended subset of indexed classes—those most consistently rep
 
 ```
 Indexed (recommended for SIP-Indoor benchmarking):
-0: wall, 1: ceiling, 2: floor, 3: pipes, 4: ladder, 5: stair 
+0: wall, 1: ceiling, 2: floor, 3: pipes, 4: column, 5: ladder, 6: stair 
 ```
 
 <!-- #### **Non-Indexed** (auxiliary / context only):  
 **7: frame, 8: lift, 9: mtrl, 10:window**, 11: guardrails, 12: door, 13: ground, 14: vehicle, 15: tree, 16: fence, 17: scaffolding, 18: portajohn, 19: container, 20: monument, 21: girder, 22: awning -->
 
+#### SIP-Indoor Class Distribution
+ - The SIP-Indoor subset is long-tailed, with dominant planar classes and sparse construction-related classes balanced across train/test splits.
+ - `mCP` denotes the mean class proportion, and `presence` indicates scans containing each class.
 
+| Class | Global (%) | mCP (%) | Presence (%) |
+|---|---:|---:|---:|
+| wall | 34.3 | 37.0 ± 13.8 | 100.0 (27/27) |
+| ceiling | 30.9 | 30.0 ± 9.1 | 96.3 (26/27) |
+| floor | 23.1 | 22.4 ± 6.8 | 100.0 (27/27) |
+| pipes | 5.5 | 6.2 ± 4.0 | 88.9 (24/27) |
+| column | 1.9 | 2.6 ± 1.2 | 66.7 (18/27) |
+| ladder | 0.2 | 0.6 ± 0.4 | 33.3 (9/27) |
+| stair | 0.9 | 4.6 ± 5.1 | 22.2 (6/27) |
+| Others (ignored) | 3.1 | - | - |
+
+
+
+#### Rare-Class Balance in `split.json`
+
+| Rare Class | Train (21 scans) | Test (7 scans) |
+|---|---:|---:|
+| ladder | 6 | 3 |
+| stair | 3 | 3 |
 
 
 
@@ -110,20 +132,20 @@ Download via the Zenodo API:
 
 #### Using `wget`
 ```bash
-wget "https://zenodo.org/api/records/17903354/files/SIP-v1.1_Indoor.zip/content" -O SIP-v1.1_Indoor.zip
-unzip SIP-v1.1_Indoor.zip && rm SIP-v1.1_Indoor.zip
+wget "https://zenodo.org/api/records/19158662/files/SIP-v1.3_Indoor.zip/content" -O SIP-v1.3_Indoor.zip
+unzip SIP-v1.3_Indoor.zip && rm SIP-v1.3_Indoor.zip
 cd SIP-v1.1_Indoor
 ```
 ```bash
-wget "https://zenodo.org/api/records/17903354/files/SIP-v1.1_Outdoor.zip/content" -O SIP-v1.1_Outdoor.zip
+wget "https://zenodo.org/api/records/19158662/files/SIP-v1.1_Outdoor.zip/content" -O SIP-v1.1_Outdoor.zip
 ```
 
 
-#### Using `curl`
+<!-- #### Using `curl`
 ```bash
-curl -L "https://zenodo.org/api/records/17903354/files/SIP-v1.1_Indoor.zip/content" -o SIP-v1.1_Indoor.zip && \
+curl -L "https://zenodo.org/api/records/19158662/files/SIP-v1.3_Indoor.zip/content" -o SIP-v1.3_Indoor.zip && \
 curl -L "https://zenodo.org/api/records/17903354/files/SIP-v1.1_Outdoor.zip/content" -o SIP-v1.1_Outdoor.zip
-```
+``` -->
 
 ### Preparing Data for 3D DL Pipelines
 The `preprocessing.py` converts raw per-class annotations into training-ready dictionary (.npz). It merges annotations, filters to indexed classes, and applies optional LiDAR scan ordering and Manhattan alignment.
